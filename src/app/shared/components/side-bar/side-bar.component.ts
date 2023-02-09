@@ -1,4 +1,5 @@
  import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -17,7 +18,7 @@ export class SideBarComponent{
 
   customOptions:Array<any>=[]
 
-  constructor(){ }
+  constructor(private router:Router){}
 
   //Espacio para llenar variables
   ngOnInit(): void {
@@ -25,12 +26,12 @@ export class SideBarComponent{
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', 'auth']
+        router: ['/']
       },
       {
         name: 'Buscar',
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'history']//Equivalente a poner localhost/history
       },
       {
         name: 'Tu biblioteca',
@@ -70,5 +71,14 @@ export class SideBarComponent{
       }
     ]
 
+  }
+
+  goTo($event:any):void{
+    this.router.navigate([''],{
+      queryParams:{//Ruta de Tipo queryParams (localhost:xxxx/query?key1=val1&key2=val2)
+        
+      }
+    })
+    console.log($event);
   }
 }
