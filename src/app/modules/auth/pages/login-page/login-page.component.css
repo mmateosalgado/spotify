@@ -104,6 +104,10 @@
     background-color: var(--color-1);
 }
 
+.error-msg{
+    color: red;
+}
+
 /*
 ng invalid lo crea el mismo angular al usar Validators en ReactiveForms , 
 tanto para el FormGroup como para el FormComponent,

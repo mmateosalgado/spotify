@@ -1,4 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from '@modules/history/components/search/search.component';
+import { PlayListBodyComponent } from '@shared/components/play-list-body/play-list-body.component';
+import { OrderListPipe } from '@shared/pipe/order-list.pipe';
 
 import { HistoryPageComponent } from './history-page.component';
 
@@ -8,7 +13,16 @@ describe('HistoryPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HistoryPageComponent ]
+      imports:[
+        HttpClientTestingModule,
+        FormsModule
+        ],
+      declarations: [ 
+        HistoryPageComponent,
+        SearchComponent,
+        PlayListBodyComponent,
+        OrderListPipe
+      ]
     })
     .compileComponents();
 

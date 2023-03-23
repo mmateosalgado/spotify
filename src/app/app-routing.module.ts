@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeModule } from './modules/home/home.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HomePageComponent } from '@modules/home/pages/home-page/home-page.component';
+import { SessionGuard } from '@core/guards/session.guard';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {  //Seteamos Home Module como default +LazyLoading
     path:'',//localhost:xxxx/ <--
     component:HomePageComponent,
-    loadChildren:()=>import('./modules/home/home.module').then(m=>m.HomeModule)
+    loadChildren:()=>import('./modules/home/home.module').then(m=>m.HomeModule),
+    canActivate:[SessionGuard]
   }
 ];
 

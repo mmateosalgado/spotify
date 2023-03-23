@@ -74,10 +74,13 @@ export class SideBarComponent{
   }
 
   goTo($event:any):void{
-    this.router.navigate([''],{
+    this.router.navigate([',','favorites'],{
       queryParams:{//Ruta de Tipo queryParams (localhost:xxxx/query?key1=val1&key2=val2)
-        
-      }
+          key1:'value1',
+          key2:'value2',
+          key3:'value3',
+
+      } 
     })
     console.log($event);
   }
